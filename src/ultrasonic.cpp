@@ -42,17 +42,15 @@ void setLedTrigDistanceCm(int value){
 }
 
 void increaseLedTrigDistanceBy10(){
-    int val = getLedTrigDistanceCm();
-    val += 10;
-    if(val > 200) val = 200; // max distance
-    setLedTrigDistanceCm(val);
+    if(ledTrigDistanceCm + 10 < 400){
+        ledTrigDistanceCm += 10;
+    }
 }
 
 void decreaseLedTrigDistanceBy10(){
-    int val = getLedTrigDistanceCm();
-    val -= 10;
-    if(val < 0) val = 0; // min distance
-    setLedTrigDistanceCm(val);
+    if(ledTrigDistanceCm - 10 > 0){
+        ledTrigDistanceCm -= 10;
+    }
 }
 
 void ledOn(){

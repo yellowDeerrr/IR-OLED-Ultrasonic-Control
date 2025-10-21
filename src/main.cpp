@@ -26,7 +26,7 @@ void setup(){
 }
 
 unsigned long now, lastButtonSend, lastDistanceDisplay, lastDistanceCalculation = 0;
-int buttonCooldown = 100;
+unsigned int buttonCooldown = 50;
 
 void loop(){
     now = millis();
@@ -55,9 +55,10 @@ void loop(){
 
     if(checkForSignal() && !checkForRepeatingSignals()){
         uint16_t cmd = getSignalCommand();
-        Serial.print("Received: 0x");
+         Serial.print("Received: 0x");
         Serial.println(cmd, HEX);
-        // handleCommand(cmd);
-        resumeReceiver();
+        handleCommand(cmd);
     }
+
+    resumeReceiver();
 }
